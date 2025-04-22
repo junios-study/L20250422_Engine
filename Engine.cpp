@@ -53,8 +53,10 @@ void UEngine::Input()
 
 void UEngine::Tick()
 {
+	World->Tick();
 }
 
 void UEngine::Render()
 {
+	World->Render();
 }
