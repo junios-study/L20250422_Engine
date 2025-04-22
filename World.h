@@ -1,4 +1,8 @@
 #pragma once
+#include <vector>
+
+class AActor;
+
 class UWorld
 {
 public:
@@ -7,5 +11,10 @@ public:
 
 	void Tick();
 	void Render();
+
+protected:
+	std::vector<AActor*> Actors;
 };
+
+//World has a actor.
 

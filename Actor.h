@@ -9,6 +9,9 @@ public:
 
 	void AddActorWorldOffset(FVector2D offset);
 	FVector2D Location;
+
+	virtual void Tick();
+	virtual void Render();
 };
 
 //Actor has a Fvector2D
