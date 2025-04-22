@@ -6,5 +6,9 @@ public:
 	virtual ~UInput();
 
 	void Tick();
+
+	static int KeyCode;
 };
+
+
 

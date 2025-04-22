@@ -12,6 +12,8 @@ public:
 
 	virtual void Tick();
 	virtual void Render();
+
+	char Shape;
 };
 
 //Actor has a Fvector2D
