@@ -10,6 +10,7 @@
 #include "Floor.h"
 #include "Goal.h"
 #include "Monster.h"
+#include "Renderer.h"
 
 UWorld::UWorld()
 {
@@ -47,11 +48,12 @@ void UWorld::Tick()
 
 void UWorld::Render()
 {
-	//system("cls");
+	URenderer::GetInstance()->Clear();
 	for (auto Actor : Actors)
 	{
 		Actor->Render();
 	}
+	URenderer::GetInstance()->Flip();
 }
 
 void UWorld::Load(std::string filename)

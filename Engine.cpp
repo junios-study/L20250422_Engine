@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "World.h"
 #include "Input.h"
+#include "Renderer.h"
 
 
 UEngine* UEngine::Instance = nullptr;
@@ -22,7 +23,7 @@ void UEngine::Initiailze(std::string filename)
 	InputDevice = new UInput();
 	World = new UWorld();
 	World->Load(filename);
-
+	URenderer::GetInstance();
 }
 
 void UEngine::Run()
