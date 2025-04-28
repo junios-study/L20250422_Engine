@@ -5,8 +5,22 @@ class UInput;
 
 class UEngine
 {
-public:
+private:
 	UEngine();
+	static UEngine* Instance;
+
+public:
+
+	static UEngine* GetInstance()
+	{
+		if (!Instance)
+		{
+			Instance = new UEngine();
+		}
+
+		return Instance;
+	}
+
 	virtual ~UEngine();
 
 	void Initiailze();
@@ -23,3 +37,5 @@ private:
 
 };
 
+
+#define	GEngine		UEngine::GetInstance()

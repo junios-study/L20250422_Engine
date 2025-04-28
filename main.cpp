@@ -1,18 +1,31 @@
 #include "Engine.h"
 #include <iostream>
+#include "Vector2D.h"
 
 
-class A
+class Singleton
 {
-public:
-	A() 
+private:
+	Singleton()
 	{
-		Count++;
+		Instance = nullptr;
 	}
 
-	~A()
+	static Singleton* Instance;
+
+public:
+	~Singleton()
 	{
-		Count--;
+	}
+
+	static Singleton* GetInstance()
+	{
+		if (!Instance)
+		{
+			Instance = new Singleton();
+		}
+
+		return Instance;
 	}
 
 	//int Count;
@@ -24,13 +37,19 @@ public:
 	}
 };
 
-int A::Count = 0;
 
 
 
 int main()
 {
-	A::Add();
+	FVector2D A;
+	FVector2D B;
+	FVector2D C = A.operator+(B);
+	//FVector2D C = A + B;
+
+	//Singleton* S = Singleton::GetInstance();
+//	Singleton* S2 = new Singleton();
+
 	//smart pointer, 레퍼런스 카운팅
 	//A* a = new A();
 	//A* b = new A();
@@ -40,12 +59,14 @@ int main()
 	//delete a;
 	//delete b;
 
-	//std::cout << A::Count << std::endl;
+	std::cout << (1) << std::endl;
 
+	//SubSystem -> 
+	//UEngine* Engine = UEngine::GetInstance();
+//	UEngine* Engine2 = new UEngine();
 
-	//UEngine* Engine = new UEngine();
-	//Engine->Initiailze();
-	//Engine->Run();
+	GEngine->Initiailze();
+	GEngine->Run();
 
 	return 0;
 }

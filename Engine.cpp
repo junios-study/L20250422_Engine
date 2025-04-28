@@ -2,6 +2,9 @@
 #include "World.h"
 #include "Input.h"
 
+UEngine* UEngine::Instance = nullptr;
+
+
 UEngine::UEngine() //: World(nullptr)
 {
 	World = nullptr;
