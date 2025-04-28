@@ -51,6 +51,13 @@ void UWorld::Load(std::string filename)
 {
 	//구현
 	//map 파일 읽어서 만들기
+	//text
+	//한줄씩 읽어서 객체 생성하게 만듬
+	//while(한줄읽기), ifstream,
+	//{
+	//	한칸 내용 확인
+	//	액터 생성
+	//}
 }
 
 void UWorld::SpawnActor(AActor* NewActor)
