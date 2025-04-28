@@ -1,7 +1,10 @@
 #pragma once
+#include <string>
 
 class UWorld;
 class UInput;
+
+
 
 class UEngine
 {
@@ -23,7 +26,7 @@ public:
 
 	virtual ~UEngine();
 
-	void Initiailze();
+	void Initiailze(std::string filename = "level01.map");
 	void Run();
 	void Terminate();
 

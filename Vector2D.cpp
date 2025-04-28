@@ -1,6 +1,6 @@
 #include "Vector2D.h"
 
-//FVector2D::FVector2D()
+//FVector2D::FVector2D() : X(0), Y(0)
 //{
 //	X = 0;
 //	Y = 0;

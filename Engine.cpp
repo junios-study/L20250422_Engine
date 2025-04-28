@@ -2,6 +2,7 @@
 #include "World.h"
 #include "Input.h"
 
+
 UEngine* UEngine::Instance = nullptr;
 
 
@@ -16,10 +17,12 @@ UEngine::~UEngine()
 	Terminate();
 }
 
-void UEngine::Initiailze()
+void UEngine::Initiailze(std::string filename)
 {
 	InputDevice = new UInput();
 	World = new UWorld();
+	World->Load(filename);
+
 }
 
 void UEngine::Run()

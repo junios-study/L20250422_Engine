@@ -6,18 +6,18 @@
 
 UWorld::UWorld()
 {
-	SpawnActor(new APlayer());
-	SpawnActor(new AWall());
+	//SpawnActor(new APlayer());
+	//SpawnActor(new AWall());
 
-	AWall* NewWall = new AWall();
-	NewWall->Location.X = 1;
-	NewWall->Location.Y = 0;
-	SpawnActor(NewWall);
+	//AWall* NewWall = new AWall();
+	//NewWall->Location.X = 1;
+	//NewWall->Location.Y = 0;
+	//SpawnActor(NewWall);
 
-	NewWall = new AWall();
-	NewWall->Location.X = 2;
-	NewWall->Location.Y = 0;
-	SpawnActor(NewWall);
+	//NewWall = new AWall();
+	//NewWall->Location.X = 2;
+	//NewWall->Location.Y = 0;
+	//SpawnActor(NewWall);
 }
 
 UWorld::~UWorld()
@@ -45,6 +45,12 @@ void UWorld::Render()
 	{
 		Actor->Render();
 	}
+}
+
+void UWorld::Load(std::string filename)
+{
+	//구현
+	//map 파일 읽어서 만들기
 }
 
 void UWorld::SpawnActor(AActor* NewActor)
