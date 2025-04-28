@@ -42,7 +42,7 @@ void URenderer::Render(const FVector2D& Location, char Shape)
 	WriteConsole(ScreenHandles[CurrentScreenIndex], Shapes, 1, NULL, NULL);
 }
 
-void URenderer::Flip()
+void URenderer::Present()
 {
 	SetConsoleActiveScreenBuffer(ScreenHandles[CurrentScreenIndex]);
 

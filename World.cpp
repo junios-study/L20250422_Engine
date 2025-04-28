@@ -53,7 +53,7 @@ void UWorld::Render()
 	{
 		Actor->Render();
 	}
-	URenderer::GetInstance()->Flip();
+	URenderer::GetInstance()->Present();
 }
 
 void UWorld::Load(std::string filename)

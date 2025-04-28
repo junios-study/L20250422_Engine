@@ -17,7 +17,7 @@ public:
 
 	void Clear();
 	void Render(const FVector2D& Location, char Shape);
-	void Flip();
+	void Present();
 
 
 };
