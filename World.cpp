@@ -14,18 +14,6 @@
 
 UWorld::UWorld()
 {
-	//SpawnActor(new APlayer());
-	//SpawnActor(new AWall());
-
-	//AWall* NewWall = new AWall();
-	//NewWall->Location.X = 1;
-	//NewWall->Location.Y = 0;
-	//SpawnActor(NewWall);
-
-	//NewWall = new AWall();
-	//NewWall->Location.X = 2;
-	//NewWall->Location.Y = 0;
-	//SpawnActor(NewWall);
 }
 
 UWorld::~UWorld()
