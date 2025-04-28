@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 #include "World.h"
 #include "Actor.h"
@@ -99,7 +100,13 @@ void UWorld::Load(std::string filename)
 
 	MapFile.close();
 
-	//sort
+//	std::sort(Actors.begin(), Actors.end(), AActor::Compare);
+	//std::sort(Actors.begin(), Actors.end(), 
+	//	ActorCompareByRenderOrder{});
+	std::sort(Actors.begin(), Actors.end(), [](const AActor* A, const AActor* B) {
+		return (A->RenderOrder) > (B->RenderOrder);
+	});
+
 
 	//구현
 	//map 파일 읽어서 만들기

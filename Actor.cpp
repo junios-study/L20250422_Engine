@@ -38,3 +38,8 @@ void AActor::Render()
 
 	std::cout << Shape;
 }
+
+bool AActor::CompareByRendeOrder(const AActor* A, const AActor* B)
+{
+	return (A->RenderOrder) > (B->RenderOrder);
+}
