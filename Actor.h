@@ -5,6 +5,7 @@ class AActor
 {
 public:
 	AActor();
+	AActor(const FVector2D& InVector);
 	virtual ~AActor();
 
 	void AddActorWorldOffset(FVector2D offset);
@@ -14,6 +15,7 @@ public:
 	virtual void Render();
 
 	char Shape;
+	int RenderOrder = 0;
 };
 
 //Actor has a Fvector2D

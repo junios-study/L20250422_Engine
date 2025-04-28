@@ -1,8 +1,14 @@
+#include <iostream>
+#include <fstream>
+
 #include "World.h"
 #include "Actor.h"
 
 #include "Player.h"
 #include "Wall.h"
+#include "Floor.h"
+#include "Goal.h"
+#include "Monster.h"
 
 UWorld::UWorld()
 {
@@ -49,6 +55,52 @@ void UWorld::Render()
 
 void UWorld::Load(std::string filename)
 {
+	std::ifstream MapFile(filename);
+
+	int X = 0;
+	int Y = 0;
+	
+	while (!MapFile.eof())
+	{
+		char Buffer[200] = { 0, };
+		MapFile.getline(Buffer, 100);
+		for (X = 0; X < strlen(Buffer); ++X)
+		{
+			if (Buffer[X] == '*')
+			{
+				SpawnActor(new AWall(FVector2D(X, Y)));
+			}
+			else if (Buffer[X] == ' ')
+			{
+				//SpawnActor(new AFloor(FVector2D(X, Y)));
+			}
+			else if (Buffer[X] == 'M')
+			{
+				SpawnActor(new AMonster(FVector2D(X, Y)));
+			}
+			else if (Buffer[X] == 'G')
+			{
+				SpawnActor(new AGoal(FVector2D(X, Y)));
+			}
+			else if (Buffer[X] == 'P')
+			{
+				SpawnActor(new APlayer(FVector2D(X, Y)));
+			}
+
+			SpawnActor(new AFloor(FVector2D(X, Y)));
+
+		}
+
+
+		Y++;
+		
+	}
+
+
+	MapFile.close();
+
+	//sort
+
 	//구현
 	//map 파일 읽어서 만들기
 	//text

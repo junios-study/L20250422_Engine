@@ -9,6 +9,13 @@ AActor::AActor()
 	Shape = ' ';
 }
 
+AActor::AActor(const FVector2D& InVector)
+{
+	Location = InVector;
+	//Location.X = InVector.X;
+	//Location.Y = InVector.Y;
+}
+
 AActor::~AActor()
 {
 }
