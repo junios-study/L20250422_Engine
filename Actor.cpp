@@ -3,11 +3,12 @@
 
 #include "Actor.h"
 #include "Renderer.h"
+#include "SDL3/SDL.h"
 
 
 AActor::AActor()
 {
-	Shape = ' ';
+	//Shape = ' ';
 }
 
 AActor::AActor(const FVector2D& InVector)
@@ -39,7 +40,18 @@ void AActor::Render()
 
 	//std::cout << Shape;
 
-	URenderer::GetInstance()->Render(Location, Shape);
+	URenderer::GetInstance()->Render(this);
+}
+
+void AActor::Load()
+{
+	if (Filename.size() > 0)
+	{
+		std::string Temp = "./data/" + Filename;
+		Surface = SDL_LoadBMP(Temp.c_str()); //RAM
+		//VRAM
+		Texture = SDL_CreateTextureFromSurface(URenderer::GetInstance()->Renderer, Surface);
+	}
 }
 
 bool AActor::CompareByRendeOrder(const AActor* A, const AActor* B)

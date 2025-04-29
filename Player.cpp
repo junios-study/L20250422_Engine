@@ -7,6 +7,13 @@ APlayer::APlayer()
 {
 	Shape = 'P';
 	RenderOrder = 7;
+	Color.r = 255;
+	Color.g = 0;
+	Color.b = 0;
+	Color.a = 0;
+	Filename = "player.bmp";
+
+	Load();
 }
 
 APlayer::APlayer(const FVector2D& InVector)
@@ -14,6 +21,13 @@ APlayer::APlayer(const FVector2D& InVector)
 	Shape = 'P';
 	Location = InVector;
 	RenderOrder = 7;
+	Color.r = 255;
+	Color.g = 0;
+	Color.b = 0;
+	Color.a = 0;
+	Filename = "player.bmp";
+
+	Load();
 }
 
 APlayer::~APlayer()

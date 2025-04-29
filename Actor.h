@@ -1,5 +1,9 @@
 #pragma once
+#include <string>
+
 #include "Vector2D.h"
+#include "SDL3/SDL.h"
+
 
 class AActor
 {
@@ -14,10 +18,20 @@ public:
 	virtual void Tick();
 	virtual void Render();
 
+	void Load();
+
+
 	char Shape;
 	int RenderOrder = 0;
 
 	static bool CompareByRendeOrder(const AActor* A, const AActor* B);
+
+	SDL_Color Color;
+
+	std::string Filename;
+	SDL_Surface* Surface;
+	SDL_Texture* Texture;
+
 };
 
 //functor
