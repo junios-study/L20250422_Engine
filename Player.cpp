@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "Input.h"
+#include "Engine.h"
+#include "SDL3/SDL.h"
 
 APlayer::APlayer()
 {
@@ -20,18 +22,22 @@ APlayer::~APlayer()
 
 void APlayer::Tick()
 {
-	switch (UInput::KeyCode)
+	switch (GEngine->Event.key.key)
 	{
-	case 'w':
+	case SDLK_W:
+	case SDLK_UP:
 		AddActorWorldOffset(FVector2D(0, -1));
 		break;
-	case 's':
+	case SDLK_S:
+	case SDLK_DOWN:
 		AddActorWorldOffset(FVector2D(0, 1));
 		break;
-	case 'a':
+	case SDLK_A:
+	case SDLK_LEFT:
 		AddActorWorldOffset(FVector2D(-1, 0));
 		break;
-	case 'd':
+	case SDLK_D:
+	case SDLK_RIGHT:
 		AddActorWorldOffset(FVector2D(1, 0));
 		break;
 	}
