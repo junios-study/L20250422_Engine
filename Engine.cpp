@@ -4,6 +4,8 @@
 #include "Renderer.h"
 
 
+
+
 UEngine* UEngine::Instance = nullptr;
 
 
@@ -20,6 +22,10 @@ UEngine::~UEngine()
 
 void UEngine::Initiailze(std::string filename)
 {
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+
+	Window = SDL_CreateWindow("Engine", 800, 600, SDL_WINDOW_OPENGL);
+
 	InputDevice = new UInput();
 	World = new UWorld();
 	World->Load(filename);
@@ -49,6 +55,9 @@ void UEngine::Terminate()
 		delete InputDevice;
 		InputDevice = nullptr;
 	}
+
+	SDL_DestroyWindow(Window);
+	SDL_Quit();
 }
 
 void UEngine::Input()

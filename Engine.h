@@ -1,5 +1,8 @@
 #pragma once
 #include <string>
+#include "SDL3/SDL.h"
+
+#pragma comment(lib, "SDL3")
 
 class UWorld;
 class UInput;
@@ -29,6 +32,8 @@ public:
 	void Initiailze(std::string filename = "level01.map");
 	void Run();
 	void Terminate();
+
+	SDL_Window* Window;
 
 private:
 	void Input();
