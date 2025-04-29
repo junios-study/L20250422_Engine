@@ -8,14 +8,13 @@
 
 AActor::AActor()
 {
-	//Shape = ' ';
+	ColorKey = { 255, 255, 255, 255 };
 }
 
 AActor::AActor(const FVector2D& InVector)
 {
 	Location = InVector;
-	//Location.X = InVector.X;
-	//Location.Y = InVector.Y;
+	ColorKey = { 255, 255, 255, 255 };
 }
 
 AActor::~AActor()
@@ -49,6 +48,10 @@ void AActor::Load()
 	{
 		std::string Temp = "./data/" + Filename;
 		Surface = SDL_LoadBMP(Temp.c_str()); //RAM
+		const SDL_PixelFormatDetails* pixelDetails = SDL_GetPixelFormatDetails(Surface->format);
+
+		SDL_SetSurfaceColorKey(Surface, true,
+			SDL_MapRGB(pixelDetails, nullptr, ColorKey.r, ColorKey.g, ColorKey.a));
 		//VRAM
 		Texture = SDL_CreateTextureFromSurface(URenderer::GetInstance()->Renderer, Surface);
 	}

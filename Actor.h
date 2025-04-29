@@ -27,6 +27,7 @@ public:
 	static bool CompareByRendeOrder(const AActor* A, const AActor* B);
 
 	SDL_Color Color;
+	SDL_Color ColorKey;
 
 	std::string Filename;
 	SDL_Surface* Surface;
