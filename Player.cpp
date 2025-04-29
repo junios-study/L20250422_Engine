@@ -11,7 +11,7 @@ APlayer::APlayer()
 	Color.g = 0;
 	Color.b = 0;
 	Color.a = 0;
-	ColorKey = { 255, 0, 255, 0 };
+	ColorKey = { 255, 0, 255, 255 };
 
 	Filename = "player.bmp";
 
@@ -27,7 +27,7 @@ APlayer::APlayer(const FVector2D& InVector)
 	Color.g = 0;
 	Color.b = 0;
 	Color.a = 0;
-	ColorKey = { 255, 0, 255, 0 };
+	ColorKey = { 255, 0, 255, 255 };
 	Filename = "player.bmp";
 
 	Load();
