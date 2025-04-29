@@ -4,7 +4,7 @@
 
 URenderer* URenderer::Instance = nullptr;
 
-URenderer::URenderer() 
+URenderer::URenderer()
 {
 	ScreenHandles[0] = CreateConsoleScreenBuffer(GENERIC_READ | GENERIC_WRITE,
 		0, NULL, CONSOLE_TEXTMODE_BUFFER, NULL);
@@ -53,7 +53,7 @@ void URenderer::Clear()
 void URenderer::Render(const AActor* RenderObject)
 {
 	char Shapes[2] = { RenderObject->Shape, '\0' };
-	SetConsoleCursorPosition(ScreenHandles[CurrentScreenIndex], COORD{ (short)(RenderObject->Location.X), (short)(RenderObject->Location.Y)});
+	SetConsoleCursorPosition(ScreenHandles[CurrentScreenIndex], COORD{ (short)(RenderObject->Location.X), (short)(RenderObject->Location.Y) });
 
 	WriteConsole(ScreenHandles[CurrentScreenIndex], Shapes, 1, NULL, NULL);
 
@@ -63,13 +63,29 @@ void URenderer::Render(const AActor* RenderObject)
 	//	RenderObject->Color.a);
 	////SDL_RenderPoint(Renderer, (float)RenderObject->Location.X, (float)RenderObject->Location.Y);
 
-	SDL_FRect Location = { RenderObject->Location.X * 30,
-	RenderObject->Location.Y * 30,
-	30, 30 };
-	
+	SDL_FRect Location = { 
+		(float)RenderObject->Location.X * 30,
+		(float)RenderObject->Location.Y * 30,
+		(float)30,
+		(float)30
+	};
+
 	//SDL_RenderFillRect(Renderer, &Location);
 
-	SDL_RenderTexture(Renderer, RenderObject->Texture, nullptr, &Location);
+	if (RenderObject->IsSprite)
+	{
+		SDL_FRect SourceLocation{
+			(float)0,
+			(float)0,
+			(float)(RenderObject->Surface->w / 5),
+			(float)(RenderObject->Surface->h / 5)
+		};
+		SDL_RenderTexture(Renderer, RenderObject->Texture, &SourceLocation, &Location);
+	}
+	else
+	{
+		SDL_RenderTexture(Renderer, RenderObject->Texture, nullptr, &Location);
+	}
 }
 
 void URenderer::Present()

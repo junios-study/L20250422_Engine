@@ -33,6 +33,7 @@ public:
 	SDL_Surface* Surface;
 	SDL_Texture* Texture;
 
+	bool IsSprite;
 };
 
 //functor

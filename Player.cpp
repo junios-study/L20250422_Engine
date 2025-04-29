@@ -14,6 +14,7 @@ APlayer::APlayer()
 	ColorKey = { 255, 0, 255, 255 };
 
 	Filename = "player.bmp";
+	IsSprite = true;
 
 	Load();
 }
@@ -29,6 +30,7 @@ APlayer::APlayer(const FVector2D& InVector)
 	Color.a = 0;
 	ColorKey = { 255, 0, 255, 255 };
 	Filename = "player.bmp";
+	IsSprite = true;
 
 	Load();
 }

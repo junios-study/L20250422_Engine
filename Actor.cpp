@@ -9,12 +9,14 @@
 AActor::AActor()
 {
 	ColorKey = { 255, 255, 255, 255 };
+	IsSprite = false;
 }
 
 AActor::AActor(const FVector2D& InVector)
 {
 	Location = InVector;
 	ColorKey = { 255, 255, 255, 255 };
+	IsSprite = false;
 }
 
 AActor::~AActor()
