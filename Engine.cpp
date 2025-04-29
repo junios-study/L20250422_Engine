@@ -22,6 +22,7 @@ UEngine::~UEngine()
 
 void UEngine::Initiailze(std::string filename)
 {
+	IsRunning = true;
 	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
 
 	Window = SDL_CreateWindow("Engine", 800, 600, SDL_WINDOW_OPENGL);
@@ -34,8 +35,16 @@ void UEngine::Initiailze(std::string filename)
 
 void UEngine::Run()
 {
-	while (true)
+	while (IsRunning)
 	{
+		SDL_PollEvent(&Event);
+		switch (Event.type)
+		{
+		case SDL_EVENT_QUIT:
+			IsRunning = false;
+			break;
+		}
+
 		Input();
 		Tick();
 		Render();

@@ -34,6 +34,7 @@ public:
 	void Terminate();
 
 	SDL_Window* Window;
+	SDL_Event Event;
 
 private:
 	void Input();
@@ -42,6 +43,7 @@ private:
 
 	UWorld* World;
 	UInput* InputDevice;
+	bool	IsRunning;
 
 };
 
