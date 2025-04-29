@@ -71,16 +71,18 @@ void URenderer::Render(const AActor* RenderObject)
 	};
 
 	//SDL_RenderFillRect(Renderer, &Location);
-
+	static int Index = 0;
 	if (RenderObject->IsSprite)
 	{
 		SDL_FRect SourceLocation{
-			(float)0,
+			(float)(RenderObject->Surface->w / 5) * Index,
 			(float)0,
 			(float)(RenderObject->Surface->w / 5),
 			(float)(RenderObject->Surface->h / 5)
 		};
 		SDL_RenderTexture(Renderer, RenderObject->Texture, &SourceLocation, &Location);
+		Index++;
+		Index %= 5;
 	}
 	else
 	{
