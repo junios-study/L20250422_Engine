@@ -12,7 +12,7 @@ public:
 	UPaperFilpbookComponent();
 	virtual ~UPaperFilpbookComponent();
 
-	void Render();
+	virtual void Render() override;
 
 	void Load();
 

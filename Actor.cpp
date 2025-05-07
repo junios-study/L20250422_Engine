@@ -5,6 +5,7 @@
 #include "Renderer.h"
 #include "SDL3/SDL.h"
 #include "Component.h"
+#include "SceneComponent.h"
 
 
 AActor::AActor()
@@ -32,6 +33,14 @@ void AActor::Tick()
 
 void AActor::Render()
 {
+	for (auto Component : PropertyList)
+	{
+		USceneComponent* SceneComponent = dynamic_cast<USceneComponent*>(Component);
+		if (Component)
+		{
+			SceneComponent->Render();
+		}
+	}
 
 }
 

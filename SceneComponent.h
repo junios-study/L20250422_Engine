@@ -3,5 +3,7 @@
 
 class USceneComponent : public UActorComponent
 {
+public:
+	virtual void Render();
 };
 
