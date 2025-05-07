@@ -94,7 +94,8 @@ void UWorld::Load(std::string filename)
 	//std::sort(Actors.begin(), Actors.end(), 
 	//	ActorCompareByRenderOrder{});
 	std::sort(Actors.begin(), Actors.end(), [](const AActor* A, const AActor* B) {
-		return (A->RenderOrder) > (B->RenderOrder);
+		return true;
+		//return (A->RenderOrder) > (B->RenderOrder);
 	});
 
 

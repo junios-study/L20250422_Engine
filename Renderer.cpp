@@ -52,43 +52,43 @@ void URenderer::Clear()
 
 void URenderer::Render(AActor* RenderObject)
 {
-	char Shapes[2] = { RenderObject->Shape, '\0' };
-	SetConsoleCursorPosition(ScreenHandles[CurrentScreenIndex], COORD{ (short)(RenderObject->Location.X), (short)(RenderObject->Location.Y) });
+	//char Shapes[2] = { RenderObject->Shape, '\0' };
+	//SetConsoleCursorPosition(ScreenHandles[CurrentScreenIndex], COORD{ (short)(RenderObject->Location.X), (short)(RenderObject->Location.Y) });
 
-	WriteConsole(ScreenHandles[CurrentScreenIndex], Shapes, 1, NULL, NULL);
+	//WriteConsole(ScreenHandles[CurrentScreenIndex], Shapes, 1, NULL, NULL);
 
-	SDL_FRect Location = { 
-		(float)RenderObject->Location.X * 30,
-		(float)RenderObject->Location.Y * 30,
-		(float)30,
-		(float)30
-	};
+	//SDL_FRect Location = { 
+	//	(float)RenderObject->Location.X * 30,
+	//	(float)RenderObject->Location.Y * 30,
+	//	(float)30,
+	//	(float)30
+	//};
 
-	static int Index = 0;
-	if (RenderObject->IsSprite)
-	{
-		int SpirteSizeX = RenderObject->Surface->w / 5;
-		int SpirteSizeY = RenderObject->Surface->h / 5;
-		SDL_FRect SourceLocation{
-			(float)(SpirteSizeX) * Index,
-			(float)0,
-			(float)(SpirteSizeX),
-			(float)(SpirteSizeY)
-		};
-		SDL_RenderTexture(Renderer, RenderObject->Texture, &SourceLocation, &Location);
-		if (RenderObject->elapasedTime >= RenderObject->ProcessTime)
-		{
-			RenderObject->elapasedTime = 0.0f;
-			Index++;
-			Index %= 5;
-		}
-		RenderObject->elapasedTime += UEngine::GetWorldDeltaSeconds();
-		SDL_Log("%f\n", UEngine::GetWorldDeltaSeconds());
-	}
-	else
-	{
-		SDL_RenderTexture(Renderer, RenderObject->Texture, nullptr, &Location);
-	}
+	//static int Index = 0;
+	//if (RenderObject->IsSprite)
+	//{
+	//	int SpirteSizeX = RenderObject->Surface->w / 5;
+	//	int SpirteSizeY = RenderObject->Surface->h / 5;
+	//	SDL_FRect SourceLocation{
+	//		(float)(SpirteSizeX) * Index,
+	//		(float)0,
+	//		(float)(SpirteSizeX),
+	//		(float)(SpirteSizeY)
+	//	};
+	//	SDL_RenderTexture(Renderer, RenderObject->Texture, &SourceLocation, &Location);
+	//	if (RenderObject->elapasedTime >= RenderObject->ProcessTime)
+	//	{
+	//		RenderObject->elapasedTime = 0.0f;
+	//		Index++;
+	//		Index %= 5;
+	//	}
+	//	RenderObject->elapasedTime += UEngine::GetWorldDeltaSeconds();
+	//	SDL_Log("%f\n", UEngine::GetWorldDeltaSeconds());
+	//}
+	//else
+	//{
+	//	SDL_RenderTexture(Renderer, RenderObject->Texture, nullptr, &Location);
+	//}
 }
 
 void URenderer::Present()

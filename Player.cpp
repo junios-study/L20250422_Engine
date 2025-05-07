@@ -5,34 +5,34 @@
 
 APlayer::APlayer()
 {
-	Shape = 'P';
-	RenderOrder = 7;
-	Color.r = 255;
-	Color.g = 0;
-	Color.b = 0;
-	Color.a = 0;
-	ColorKey = { 255, 0, 255, 255 };
+	//Shape = 'P';
+	//RenderOrder = 7;
+	//Color.r = 255;
+	//Color.g = 0;
+	//Color.b = 0;
+	//Color.a = 0;
+	//ColorKey = { 255, 0, 255, 255 };
 
-	Filename = "player.bmp";
-	IsSprite = true;
+	//Filename = "player.bmp";
+	//IsSprite = true;
 
-	Load();
+	//Load();
 }
 
 APlayer::APlayer(const FVector2D& InVector)
 {
-	Shape = 'P';
-	Location = InVector;
-	RenderOrder = 7;
-	Color.r = 255;
-	Color.g = 0;
-	Color.b = 0;
-	Color.a = 0;
-	ColorKey = { 255, 0, 255, 255 };
-	Filename = "player.bmp";
-	IsSprite = true;
+	//Shape = 'P';
+	//Location = InVector;
+	//RenderOrder = 7;
+	//Color.r = 255;
+	//Color.g = 0;
+	//Color.b = 0;
+	//Color.a = 0;
+	//ColorKey = { 255, 0, 255, 255 };
+	//Filename = "player.bmp";
+	//IsSprite = true;
 
-	Load();
+	//Load();
 }
 
 APlayer::~APlayer()
