@@ -18,7 +18,6 @@ public:
 
 
 	char Shape;
-	int RenderOrder = 0;
 
 	static bool CompareByRendeOrder(const AActor* A, const AActor* B);
 

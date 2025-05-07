@@ -12,7 +12,7 @@ AWall::AWall()
 	Flipbook->ColorKey = { 255, 255, 255, 255 };
 
 	Flipbook->Filename = "wall.bmp";
-	Flipbook->IsSprite = true;
+	Flipbook->IsSprite = false;
 
 	Flipbook->Load();
 }
@@ -29,7 +29,7 @@ AWall::AWall(const FVector2D& InVector)
 	Flipbook->ColorKey = { 255, 255, 255, 255 };
 
 	Flipbook->Filename = "wall.bmp";
-	Flipbook->IsSprite = true;
+	Flipbook->IsSprite = false;
 
 	Flipbook->Load();
 }

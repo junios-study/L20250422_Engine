@@ -12,7 +12,7 @@ AMonster::AMonster()
 	Flipbook->ColorKey = { 255, 255, 255, 255 };
 
 	Flipbook->Filename = "monster.bmp";
-	Flipbook->IsSprite = true;
+	Flipbook->IsSprite = false;
 
 	Flipbook->Load();
 }
@@ -29,7 +29,7 @@ AMonster::AMonster(const FVector2D& InVector)
 	Flipbook->ColorKey = { 255, 255, 255, 255 };
 
 	Flipbook->Filename = "monster.bmp";
-	Flipbook->IsSprite = true;
+	Flipbook->IsSprite = false;
 
 	Flipbook->Load();
 }

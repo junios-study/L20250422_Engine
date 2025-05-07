@@ -3,5 +3,7 @@
 
 class UActorComponent : public UComponent
 {
+public:
+	UActorComponent() {}
 };
 

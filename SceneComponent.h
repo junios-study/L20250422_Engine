@@ -4,6 +4,10 @@
 class USceneComponent : public UActorComponent
 {
 public:
+	USceneComponent() {}
 	virtual void Render();
+
+	int RenderOrder = 0;
+
 };
 

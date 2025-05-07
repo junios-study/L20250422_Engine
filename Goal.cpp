@@ -11,7 +11,7 @@ AGoal::AGoal()
 	Flipbook->ColorKey = { 255, 255, 255, 255 };
 
 	Flipbook->Filename = "goal.bmp";
-	Flipbook->IsSprite = true;
+	Flipbook->IsSprite = false;
 
 	Flipbook->Load();
 }
@@ -28,7 +28,7 @@ AGoal::AGoal(const FVector2D& InVector)
 	Flipbook->ColorKey = { 255, 255, 255, 255 };
 
 	Flipbook->Filename = "goal.bmp";
-	Flipbook->IsSprite = true;
+	Flipbook->IsSprite = false;
 
 	Flipbook->Load();
 }

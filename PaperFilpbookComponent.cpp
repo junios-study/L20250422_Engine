@@ -1,6 +1,8 @@
 #include "PaperFilpbookComponent.h"
 #include "Renderer.h"
 #include "Actor.h"
+#include "Engine.h"
+#include "SDL3/SDL.h"
 
 UPaperFilpbookComponent::UPaperFilpbookComponent()
 {
@@ -12,11 +14,6 @@ UPaperFilpbookComponent::~UPaperFilpbookComponent()
 {
 	ColorKey = { 255, 255, 255, 255 };
 	IsSprite = false;
-}
-
-void UPaperFilpbookComponent::Render()
-{
-	URenderer::GetInstance()->Render(Owner);
 }
 
 void UPaperFilpbookComponent::Load()
@@ -38,4 +35,40 @@ bool UPaperFilpbookComponent::CompareByRendeOrder(const AActor* A, const AActor*
 {
 	return true;
 	//return (RenderOrder) > (RenderOrder);
+}
+
+void UPaperFilpbookComponent::Render()
+{
+	SDL_FRect Location = {
+	(float)Owner->Location.X * 30,
+	(float)Owner->Location.Y * 30,
+	(float)30,
+	(float)30
+	};
+
+	static int Index = 0;
+	if (IsSprite)
+	{
+		int SpirteSizeX = Surface->w / 5;
+		int SpirteSizeY = Surface->h / 5;
+		SDL_FRect SourceLocation{
+			(float)(SpirteSizeX)*Index,
+			(float)0,
+			(float)(SpirteSizeX),
+			(float)(SpirteSizeY)
+		};
+		SDL_RenderTexture(URenderer::GetInstance()->Renderer, Texture, &SourceLocation, &Location);
+		if (elapasedTime >= ProcessTime)
+		{
+			elapasedTime = 0.0f;
+			Index++;
+			Index %= 5;
+		}
+		elapasedTime += UEngine::GetWorldDeltaSeconds();
+		SDL_Log("%f\n", UEngine::GetWorldDeltaSeconds());
+	}
+	else
+	{
+		SDL_RenderTexture(URenderer::GetInstance()->Renderer, Texture, nullptr, &Location);
+	}
 }
