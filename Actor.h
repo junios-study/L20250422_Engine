@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 #include "Vector2D.h"
 #include "SDL3/SDL.h"
@@ -20,6 +21,10 @@ public:
 
 	virtual void Tick();
 	virtual void Render();
+
+	class UComponent* CreateDefaultSubobject(UComponent* NewComponent);
+
+	std::vector<class UComponent*> PropertyList;
 
 	//void Load();
 
@@ -52,6 +57,4 @@ public:
 		//return (A->RenderOrder) > (B->RenderOrder);
 	}
 };
-
-//Actor has a Fvector2D
 

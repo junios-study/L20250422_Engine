@@ -8,5 +8,8 @@ public:
 	AWall();
 	AWall(const FVector2D& InVector);
 	virtual ~AWall();
+
+	class UPaperFilpbookComponent* Flipbook;
+
 };
 

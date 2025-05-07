@@ -1,30 +1,36 @@
 #include "Floor.h"
+#include "PaperFilpbookComponent.h"
 
 AFloor::AFloor()
 {
-	//Shape = ' ';
-	//RenderOrder = 10;
-	//Color.r = 255;
-	//Color.g = 255;
-	//Color.b = 255;
-	//Color.a = 0;
-	//Filename = "floor.bmp";
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
 
-	//Load();
+	Flipbook->Shape = ' ';
+	Flipbook->RenderOrder = 10;
+	Flipbook->Color = { 255, 255, 255, 0 };
+	Flipbook->ColorKey = { 255, 255, 255, 255 };
+
+	Flipbook->Filename = "floor.bmp";
+	Flipbook->IsSprite = true;
+
+	Flipbook->Load();
 }
 
 AFloor::AFloor(const FVector2D& InVector)
 {
-	//Shape = ' ';
-	//Location = InVector;
-	//RenderOrder = 10;
-	//Color.r = 255;
-	//Color.g = 255;
-	//Color.b = 255;
-	//Color.a = 0;
-	//Filename = "floor.bmp";
+	Location = InVector;
 
-	//Load();
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
+
+	Flipbook->Shape = ' ';
+	Flipbook->RenderOrder = 10;
+	Flipbook->Color = { 255, 255, 255, 0 };
+	Flipbook->ColorKey = { 255, 255, 255, 255 };
+
+	Flipbook->Filename = "goal.bmp";
+	Flipbook->IsSprite = true;
+
+	Flipbook->Load();
 }
 
 AFloor::~AFloor()

@@ -3,36 +3,36 @@
 #include "Engine.h"
 #include "SDL3/SDL.h"
 
+#include "PaperFilpbookComponent.h"
+
 APlayer::APlayer()
 {
-	//Shape = 'P';
-	//RenderOrder = 7;
-	//Color.r = 255;
-	//Color.g = 0;
-	//Color.b = 0;
-	//Color.a = 0;
-	//ColorKey = { 255, 0, 255, 255 };
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
+	
+	Flipbook->Shape = 'P';
+	Flipbook->RenderOrder = 7;
+	Flipbook->Color = { 255, 0, 0, 0};
+	Flipbook->ColorKey = { 255, 0, 255, 255 };
 
-	//Filename = "player.bmp";
-	//IsSprite = true;
+	Flipbook->Filename = "player.bmp";
+	Flipbook->IsSprite = true;
 
-	//Load();
+	Flipbook->Load();
 }
 
 APlayer::APlayer(const FVector2D& InVector)
 {
-	//Shape = 'P';
-	//Location = InVector;
-	//RenderOrder = 7;
-	//Color.r = 255;
-	//Color.g = 0;
-	//Color.b = 0;
-	//Color.a = 0;
-	//ColorKey = { 255, 0, 255, 255 };
-	//Filename = "player.bmp";
-	//IsSprite = true;
+	Location = InVector;
 
-	//Load();
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
+
+	Flipbook->Shape = 'P';
+	Flipbook->RenderOrder = 7;
+	Flipbook->Color = { 255, 0, 0, 0 };
+	Flipbook->ColorKey = { 255, 0, 255, 255 };
+	Flipbook->Filename = "player.bmp";
+	Flipbook->IsSprite = true;
+	Flipbook->Load();
 }
 
 APlayer::~APlayer()

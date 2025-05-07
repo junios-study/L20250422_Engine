@@ -4,6 +4,7 @@
 #include "Actor.h"
 #include "Renderer.h"
 #include "SDL3/SDL.h"
+#include "Component.h"
 
 
 AActor::AActor()
@@ -32,4 +33,11 @@ void AActor::Tick()
 void AActor::Render()
 {
 
+}
+
+UComponent* AActor::CreateDefaultSubobject(UComponent* NewComponent)
+{
+	NewComponent->Owner = this;
+	PropertyList.push_back(NewComponent);
+	return NewComponent;
 }

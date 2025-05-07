@@ -1,30 +1,36 @@
 #include "Goal.h"
+#include "PaperFilpbookComponent.h"
 
 AGoal::AGoal()
 {
-	//Shape = 'G';
-	//RenderOrder = 8;
-	//Color.r = 0;
-	//Color.g = 255;
-	//Color.b = 0;
-	//Color.a = 0;
-	//Filename = "goal.bmp";
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
 
-	//Load();
+	Flipbook->Shape = 'G';
+	Flipbook->RenderOrder = 6;
+	Flipbook->Color = { 0, 255, 0, 0 };
+	Flipbook->ColorKey = { 255, 255, 255, 255 };
+
+	Flipbook->Filename = "goal.bmp";
+	Flipbook->IsSprite = true;
+
+	Flipbook->Load();
 }
 
 AGoal::AGoal(const FVector2D& InVector)
 {
-	//Shape = 'G';
-	//Location = InVector;
-	//RenderOrder = 8;
-	//Color.r = 0;
-	//Color.g = 255;
-	//Color.b = 0;
-	//Color.a = 0;
-	//Filename = "goal.bmp";
+	Location = InVector;
 
-	//Load();
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
+
+	Flipbook->Shape = 'G';
+	Flipbook->RenderOrder = 6;
+	Flipbook->Color = { 0, 255, 0, 0 };
+	Flipbook->ColorKey = { 255, 255, 255, 255 };
+
+	Flipbook->Filename = "goal.bmp";
+	Flipbook->IsSprite = true;
+
+	Flipbook->Load();
 }
 
 AGoal::~AGoal()

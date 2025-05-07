@@ -1,30 +1,37 @@
 #include "Wall.h"
+#include "PaperFilpbookComponent.h"
+
 
 AWall::AWall()
 {
-	//Shape = '*';
-	//RenderOrder = 9;
-	//Color.r = 255;
-	//Color.g = 255;
-	//Color.b = 0;
-	//Color.a = 0;
-	//Filename = "wall.bmp";
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
 
-	//Load();
+	Flipbook->Shape = '0';
+	Flipbook->RenderOrder = 9;
+	Flipbook->Color = { 255, 255, 255, 0 };
+	Flipbook->ColorKey = { 255, 255, 255, 255 };
+
+	Flipbook->Filename = "wall.bmp";
+	Flipbook->IsSprite = true;
+
+	Flipbook->Load();
 }
 
 AWall::AWall(const FVector2D& InVector)
 {
-	//Shape = '*';
-	//Location = InVector;
-	//RenderOrder = 9;
-	//Color.r = 255;
-	//Color.g = 255;
-	//Color.b = 0;
-	//Color.a = 0;
-	//Filename = "wall.bmp";
+	Location = InVector;
 
-	//Load();
+	Flipbook = (UPaperFilpbookComponent*)CreateDefaultSubobject(new UPaperFilpbookComponent());
+
+	Flipbook->Shape = '0';
+	Flipbook->RenderOrder = 9;
+	Flipbook->Color = { 255, 255, 255, 0 };
+	Flipbook->ColorKey = { 255, 255, 255, 255 };
+
+	Flipbook->Filename = "wall.bmp";
+	Flipbook->IsSprite = true;
+
+	Flipbook->Load();
 }
 
 AWall::~AWall()

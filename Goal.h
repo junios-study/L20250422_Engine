@@ -9,5 +9,8 @@ public:
 	AGoal();
 	AGoal(const FVector2D& InVector);
 	virtual ~AGoal();
+
+	class UPaperFilpbookComponent* Flipbook;
+
 };
 
