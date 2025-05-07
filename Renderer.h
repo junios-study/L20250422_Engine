@@ -22,7 +22,7 @@ public:
 
 	void Clear();
 	//void Render(const FVector2D& Location, char Shape);
-	void Render(const AActor* RenderObject);
+	void Render(AActor* RenderObject);
 	void Present();
 
 

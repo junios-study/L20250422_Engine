@@ -34,6 +34,9 @@ public:
 	SDL_Texture* Texture;
 
 	bool IsSprite;
+
+	float ProcessTime = 0.25f;
+	float elapasedTime = 0.0;
 };
 
 //functor
@@ -47,3 +50,4 @@ public:
 };
 
 //Actor has a Fvector2D
+

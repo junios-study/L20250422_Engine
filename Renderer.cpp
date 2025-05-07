@@ -50,18 +50,12 @@ void URenderer::Clear()
 //	WriteConsole(ScreenHandles[CurrentScreenIndex], Shapes, 1, NULL, NULL);
 //}
 
-void URenderer::Render(const AActor* RenderObject)
+void URenderer::Render(AActor* RenderObject)
 {
 	char Shapes[2] = { RenderObject->Shape, '\0' };
 	SetConsoleCursorPosition(ScreenHandles[CurrentScreenIndex], COORD{ (short)(RenderObject->Location.X), (short)(RenderObject->Location.Y) });
 
 	WriteConsole(ScreenHandles[CurrentScreenIndex], Shapes, 1, NULL, NULL);
-
-	//SDL_SetRenderDrawColor(Renderer, RenderObject->Color.r,
-	//	RenderObject->Color.g,
-	//	RenderObject->Color.b,
-	//	RenderObject->Color.a);
-	////SDL_RenderPoint(Renderer, (float)RenderObject->Location.X, (float)RenderObject->Location.Y);
 
 	SDL_FRect Location = { 
 		(float)RenderObject->Location.X * 30,
@@ -70,19 +64,26 @@ void URenderer::Render(const AActor* RenderObject)
 		(float)30
 	};
 
-	//SDL_RenderFillRect(Renderer, &Location);
 	static int Index = 0;
 	if (RenderObject->IsSprite)
 	{
+		int SpirteSizeX = RenderObject->Surface->w / 5;
+		int SpirteSizeY = RenderObject->Surface->h / 5;
 		SDL_FRect SourceLocation{
-			(float)(RenderObject->Surface->w / 5) * Index,
+			(float)(SpirteSizeX) * Index,
 			(float)0,
-			(float)(RenderObject->Surface->w / 5),
-			(float)(RenderObject->Surface->h / 5)
+			(float)(SpirteSizeX),
+			(float)(SpirteSizeY)
 		};
 		SDL_RenderTexture(Renderer, RenderObject->Texture, &SourceLocation, &Location);
-		Index++;
-		Index %= 5;
+		if (RenderObject->elapasedTime >= RenderObject->ProcessTime)
+		{
+			RenderObject->elapasedTime = 0.0f;
+			Index++;
+			Index %= 5;
+		}
+		RenderObject->elapasedTime += UEngine::GetWorldDeltaSeconds();
+		SDL_Log("%f\n", UEngine::GetWorldDeltaSeconds());
 	}
 	else
 	{

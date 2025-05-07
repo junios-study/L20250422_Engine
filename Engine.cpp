@@ -2,6 +2,7 @@
 #include "World.h"
 #include "Input.h"
 #include "Renderer.h"
+#include "Timer.h"
 
 
 
@@ -13,6 +14,7 @@ UEngine::UEngine() //: World(nullptr)
 {
 	World = nullptr;
 	InputDevice = nullptr;
+	Timer = new UTimer();
 }
 
 UEngine::~UEngine()
@@ -37,6 +39,7 @@ void UEngine::Run()
 {
 	while (IsRunning)
 	{
+		Timer->Tick();
 		SDL_PollEvent(&Event);
 		switch (Event.type)
 		{
@@ -67,6 +70,11 @@ void UEngine::Terminate()
 
 	SDL_DestroyWindow(Window);
 	SDL_Quit();
+}
+
+float UEngine::GetWorldDeltaSeconds()
+{
+	return GEngine->Timer->DeltaSeconds;
 }
 
 void UEngine::Input()

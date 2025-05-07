@@ -6,6 +6,7 @@
 
 class UWorld;
 class UInput;
+class UTimer;
 
 
 
@@ -36,6 +37,9 @@ public:
 	SDL_Window* Window;
 	SDL_Event Event;
 
+	static float GetWorldDeltaSeconds();
+
+
 private:
 	void Input();
 	void Tick();
@@ -44,6 +48,8 @@ private:
 	UWorld* World;
 	UInput* InputDevice;
 	bool	IsRunning;
+
+	UTimer* Timer;
 
 };
 
